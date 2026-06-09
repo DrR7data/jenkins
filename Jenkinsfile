@@ -7,6 +7,10 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
+    environment {
+        // Variables de entorno globales útiles para Python
+        PYTHONUNBUFFERED = '1'
+    }
     stages {
         stage('Build') {
             steps {
@@ -23,7 +27,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                
+
                 source venv/bin/activate
                 python3 hello.py
                 python3 hello.py --name=Brad
