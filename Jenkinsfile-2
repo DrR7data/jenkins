@@ -1,0 +1,22 @@
+ // pipeline_python_agent_alpine
+pipeline {
+  agent {
+    label 'docker_agent_alpine' 
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh '''
+        python3 --version
+        python3 -m pip --version
+        python3 -m pip install --upgrade pip
+        python3 -m pip install pytest
+        pytest --version
+        touch main.py
+        echo "Hello, World!" >> main.py
+        python3 main.py
+        '''
+      }
+    }
+  }
+}
