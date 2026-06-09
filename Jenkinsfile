@@ -29,6 +29,7 @@ pipeline {
                 sh '''
 
                 source VIRTUAL_ENV
+                PS1
                 python3 hello.py
                 python3 hello.py --name=Brad
                 '''
