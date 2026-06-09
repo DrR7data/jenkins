@@ -28,3 +28,7 @@ rm:
 	docker rm -f alpine-git 
 rmi:
 	docker rmi alpine-git 
+ls:
+	docker exec jenkins-blueocean ls /var/jenkins_home/workspace 
+g:
+	bash docs/g.sh
