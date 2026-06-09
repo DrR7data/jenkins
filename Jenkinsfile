@@ -28,7 +28,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
 
-                source VIRTUAL_ENV_PROMPT
+                source VIRTUAL_ENV
                 python3 hello.py
                 python3 hello.py --name=Brad
                 '''
