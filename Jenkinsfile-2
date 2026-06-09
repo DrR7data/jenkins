@@ -7,6 +7,7 @@ pipeline {
     stage('Test') {
       steps {
         sh '''
+        uname -a
         python3 --version
         python3 -m venv venv
         source venv/bin/activate
@@ -16,10 +17,6 @@ pipeline {
     stage('Test-dependencies') {
       steps {
         sh '''
-        python3 --version
-        python3 -m venv venv
-        source venv/bin/activate
-        pip list
         pip install --upgrade pip
         pip install pytest uv 
         pip list
