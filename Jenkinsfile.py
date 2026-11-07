@@ -5,28 +5,23 @@ pipeline {
         }
     }
 
-    stages {
-        stage('Versión de Python') {
-            steps {
-                sh 'python --version'
-            }
-        }
+    environment {
+        HOME = "${WORKSPACE}"
+        PIP_CACHE_DIR = "${WORKSPACE}/.cache/pip"
+        PYTHONUSERBASE = "${WORKSPACE}/.local"
+        PATH = "${WORKSPACE}/.local/bin:${env.PATH}"
+    }
 
+    stages {
         stage('Instalar dependencias') {
             steps {
-                sh 'pip install -r ./myapp/requirements.txt'
-            }
-        }
-
-        stage('Ejecutar pruebas') {
-            steps {
-                sh 'python -m pytest'
+                sh 'pip install --user -r ./myapp/requirements.txt'
             }
         }
 
         stage('Ejecutar app') {
             steps {
-                sh 'python ./myapp/hello.py'
+                sh 'python ./myapp/app.py'
             }
         }
     }
