@@ -14,7 +14,7 @@ pipeline {
 
         stage('Instalar dependencias') {
             steps {
-                sh 'sudo pip install --user -r ./myapp/requirements.txt'
+                sh 'pip install -r ./myapp/requirements.txt'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Ejecutar app') {
             steps {
-                sh 'sudo python ./myapp/hello.py'
+                sh 'python ./myapp/hello.py'
             }
         }
     }
