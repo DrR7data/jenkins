@@ -1,0 +1,29 @@
+pipeline {
+    agent {
+        docker {
+            image 'python:3.12-slim'
+        }
+    }
+
+
+    stages {
+        stage('Instalar dependencias') {
+            steps {
+                sh '''
+                    python -m venv .venv
+                    . .venv/bin/activate
+                    pip install -r ./myapp/requirements.txt
+                '''
+            }
+        }
+
+        stage('Ejecutar app') {
+            steps {
+                sh '''
+                    . .venv/bin/activate
+                    python ./myapp/app.py
+                '''
+            }
+        }
+    }
+}
