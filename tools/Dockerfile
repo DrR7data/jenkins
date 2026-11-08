@@ -6,7 +6,7 @@ ARG TERRAFORM_VERSION=1.13.5
 USER root
 
 # Docker CLI
-RUN apt-get update && apt-get install -y ca-certificates curl unzip && \
+RUN apt-get update && apt-get install -y ca-certificates curl unzip make && \
     install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
     chmod a+r /etc/apt/keyrings/docker.asc && \

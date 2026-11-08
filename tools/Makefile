@@ -21,8 +21,7 @@ dind:
   --storage-driver overlay2
 
 build:
-#3 build
-#docker build -t myjenkins:2.580.2-1 .
+#3 build #docker build -t myjenkins:2.580.2-1 .
   docker build --progress=plain --no-cache -t mi-jenkins . 
 run:
 #4 run contenedor
