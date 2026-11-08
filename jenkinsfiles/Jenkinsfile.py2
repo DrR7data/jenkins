@@ -4,8 +4,6 @@ pipeline {
             image 'python:3.12-slim'
         }
     }
-
-
     stages {
         stage('Instalar dependencias') {
             steps {
@@ -22,6 +20,17 @@ pipeline {
                 sh '''
                     . .venv/bin/activate
                     python ./myapp/app.py
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                source VIRTUAL_ENV
+                PS1
+                python3 myapp/app.py
+                python3 myapp/app.py --name=Brad
                 '''
             }
         }
