@@ -27,8 +27,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                source VIRTUAL_ENV
-                PS1
+                . .venv/bin/activate
                 python3 myapp/app.py
                 python3 myapp/app.py --name=Brad
                 '''

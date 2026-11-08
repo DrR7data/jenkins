@@ -1,6 +1,7 @@
 header:
 	@echo "Buen días!, Working with  docker and alpine"
 #===========================================================
+
 red:
 #1 Red
 	docker network create jenkins
@@ -22,7 +23,7 @@ dind:
 
 build:
 #3 build #docker build -t myjenkins:2.580.2-1 .
-  docker build --progress=plain --no-cache -t mi-jenkins . 
+  #docker build --progress=plain --no-cache -t mi-jenkins . 
 run:
 #4 run contenedor
 	docker run \
