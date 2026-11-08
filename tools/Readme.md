@@ -1,0 +1,1 @@
+# En este directorio tengo un dockerfile para construir jenkins qu cuente con terraform y aws cli
